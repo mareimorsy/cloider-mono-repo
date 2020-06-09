@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    docker:
+      - image: mareimorsy/light-base
+
+    working_directory: ~/cloider-mono-repo
+
+    steps:
+      - checkout
+
+      - setup_remote_docker:
+          docker_layer_caching: true
+
+      - run:
+          name: install npm dependancies
+          command: |
+            cd alert-svc
+            npm install
+
+      # - run:
+      #     name: "Log in to Docker Hub"
+      #     command: 
