@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: mareimorsy/light-base
 
-    working_directory: ~/
+    working_directory: ~/cloider-mono-repo
 
     steps:
       - checkout
