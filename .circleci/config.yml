@@ -21,6 +21,7 @@ jobs:
             cd alert-svc
             ls
             npm install
+            docker build -t mareimorsy/alert-svc .
 
       # - run:
       #     name: "Log in to Docker Hub"
