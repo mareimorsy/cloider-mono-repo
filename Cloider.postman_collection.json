@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "59febf91-df04-4329-bf1b-91c41e50858b",
+		"name": "Cloider",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Monitors",
+			"item": [
+				{
+					"name": "Get all Monitors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/monitor",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"monitor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Monitor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Monitor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t  \"request\": {\n\t  \"method\": \"POST\",\n      \"url\": \"http://localhost:8081/sleep\",\n      \"headers\": {\"Content-Type\":\"application/json\", \"header-2\":\"value-2\"},\n      \"body\": \"This is body\",\n      \"timeout\": 3000\n\t  },\n      \"occurrence\": 3,\n      \"success_threshold\": 3,\n      \"failed_threshold\": 3 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/monitor",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"monitor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Monitor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Monitor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Alerts",
+			"item": [
+				{
+					"name": "Get all Alerts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/alert",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"alert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Alert",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_RUL}}/alert/1",
+							"host": [
+								"{{API_RUL}}"
+							],
+							"path": [
+								"alert",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f033aaea-70a3-4663-ad9a-bbbaecfc250e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a0409efd-8b8e-4b2a-bd0a-964b1e2b9c78",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "36884940-ea0e-4a67-ab50-bbcc5c73c0a4",
+			"key": "API_URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

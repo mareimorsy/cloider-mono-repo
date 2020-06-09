@@ -1,5 +1,5 @@
 // 1. Define route components.
-const API_URL="http://localhost:8080/api"
+const API_URL="http://ad8f2792de3d3456993b3f9e0ed9e14b-454476945.us-east-1.elb.amazonaws.com/api"
 const Monitors = {
     name: 'Monitors',
     data: function () {

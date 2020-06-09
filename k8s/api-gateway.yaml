@@ -2,43 +2,40 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: alert-svc
-  name: alert-svc
+    app: api-gateway
+  name: api-gateway
 spec:
   ports:
   - name: http
-    port: 4000
+    port: 80
     protocol: TCP
     targetPort: http
   selector:
-    app: alert-svc
-  type: ClusterIP
+    app: api-gateway
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: alert-svc
-  name: alert-svc
+    app: api-gateway
+  name: api-gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: alert-svc
+      app: api-gateway
   template:
     metadata:
       labels:
-        app: alert-svc
+        app: api-gateway
     spec:
       containers:
-      # - envFrom:
-      #   - configMapRef:
-      #       name: alert-svc
-      - image: mareimorsy/alert-svc
+      - image: mareimorsy/api-gateway
         imagePullPolicy: Always
-        name: alert-svc
+        name: api-gateway
         ports:
-        - containerPort: 4000
+        - containerPort: 80
           name: http
           protocol: TCP
         resources: {}

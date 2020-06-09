@@ -1,0 +1,14 @@
+{
+  "name": "test-svc",
+  "version": "1.0.0",
+  "description": "Test server for cloider",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marei Morsy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
