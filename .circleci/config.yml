@@ -13,16 +13,41 @@ jobs:
       - checkout
 
       - setup_remote_docker:
-      #     docker_layer_caching: true
 
       - run:
-          name: install npm dependancies
+          name: "Login to Docker Hub"
+          command: docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_EMAIL}"
+
+      - run:
+          name: Build & Push API-Gateway Service
+          command: |
+            cd api-gateway
+            docker build -t mareimorsy/api-gateway .
+            docker push mareimorsy/api-gateway
+            cd ..
+
+      - run:
+          name: Build & Push Monitoring Service
+          command: |
+            cd monitoring-svc
+            npm install
+            docker build -t mareimorsy/monitoring-svc .
+            docker push mareimorsy/monitoring-svc
+            cd ..
+
+      - run:
+          name: Build & Push Alert Service
           command: |
             cd alert-svc
-            ls
             npm install
             docker build -t mareimorsy/alert-svc .
+            docker push mareimorsy/alert-svc
+            cd ..
 
-      # - run:
-      #     name: "Log in to Docker Hub"
-      #     command: | 
+      - run:
+          name: Build & Push Frontend Service
+          command: |
+            cd frontend-svc
+            docker build -t mareimorsy/frontend-svc .
+            docker push mareimorsy/frontend-svc
+            cd ..
