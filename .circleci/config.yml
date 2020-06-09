@@ -5,7 +5,7 @@ jobs:
       only:
         - master
     docker:
-      - image: mareimorsy/light-base
+      - image: mareimorsy/basic-cicd
 
     working_directory: ~/cloider-mono-repo
 
