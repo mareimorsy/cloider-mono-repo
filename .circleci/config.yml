@@ -18,11 +18,8 @@ jobs:
       - run:
           name: install npm dependancies
           command: |
-            pwd
-            ls
-            cd ~
-            ls
             cd alert-svc
+            ls
             npm install
 
       # - run:
