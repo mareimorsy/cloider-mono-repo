@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: alert-svc
+  name: alert-svc
+spec:
+  ports:
+  - name: http
+    port: 4000
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: alert-svc
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: alert-svc
+  name: alert-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alert-svc
+  template:
+    metadata:
+      labels:
+        app: alert-svc
+    spec:
+      containers:
+      # - envFrom:
+      #   - configMapRef:
+      #       name: alert-svc
+      - image: mareimorsy/alert-svc
+        imagePullPolicy: Always
+        name: alert-svc
+        ports:
+        - containerPort: 4000
+          name: http
+          protocol: TCP
+        resources: {}

@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: monitoring-svc
+  name: monitoring-svc
+spec:
+  ports:
+  - name: http
+    port: 3000
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: monitoring-svc
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: monitoring-svc
+  name: monitoring-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitoring-svc
+  template:
+    metadata:
+      labels:
+        app: monitoring-svc
+    spec:
+      containers:
+      # - envFrom:
+      #   - configMapRef:
+      #       name: monitoring-svc
+      - image: mareimorsy/monitoring-svc
+        imagePullPolicy: Always
+        name: monitoring-svc
+        ports:
+        - containerPort: 3000
+          name: http
+          protocol: TCP
+        resources: {}
