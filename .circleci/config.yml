@@ -16,7 +16,7 @@ jobs:
 
       - run:
           name: "Login to Docker Hub"
-          command: docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_EMAIL}"
+          command: docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
 
       - run:
           name: Build & Push API-Gateway Service
